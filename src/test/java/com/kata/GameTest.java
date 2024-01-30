@@ -34,4 +34,12 @@ class GameTest {
         assertEquals(16, game.score());
     }
 
+    @Test
+    void givenAStrikePlusTwoRollsTakingDownTreePinsEachThenScoreShouldReturn22() {
+        game.roll(10);
+        game.roll(3);
+        game.roll(3);
+        assertEquals(22, game.score());
+    }
+
 }
