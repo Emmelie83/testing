@@ -3,6 +3,7 @@ package com.example;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class EmployeeTest {
 
@@ -18,6 +19,11 @@ class EmployeeTest {
     void givenSalarySetTo50000ThenGetSalaryShouldReturn50000() {
         employee.setSalary(50000);
         assertThat(employee.getSalary()).isEqualTo(50000);
+    }
+
+    @Test
+    void givenEmployeeIsNotPaidThenIsPaidShouldReturnFalse() {
+        assertFalse(employee.isPaid());
     }
 
 
