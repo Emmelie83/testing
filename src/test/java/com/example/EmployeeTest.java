@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EmployeeTest {
 
@@ -26,6 +27,16 @@ class EmployeeTest {
         assertFalse(employee.isPaid());
     }
 
+    @Test
+    void givenEmployeeIsPaidThenIsPaidShouldReturnTrue() {
+        employee.setPaid(true);
+        assertTrue(employee.isPaid());
+    }
+
+    @Test
+    void toStringShouldReturnEmployeeAsString() {
+        assertThat(employee.toString()).hasToString("Employee [id=2632, salary=43000.0]");
+    }
 
 
 }
