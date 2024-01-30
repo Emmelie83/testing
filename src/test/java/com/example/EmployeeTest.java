@@ -9,9 +9,17 @@ class EmployeeTest {
     Employee employee = new Employee("2632", 43000);
 
     @Test
-    void givenIdSetTo2632ThenGetIdShouldReturn2632() {
+    void givenIdSetTo2633ThenGetIdShouldReturn2633() {
         employee.setId("2633");
         assertThat(employee.getId()).isEqualTo("2633");
     }
+
+    @Test
+    void givenSalarySetTo50000ThenGetSalaryShouldReturn50000() {
+        employee.setSalary(50000);
+        assertThat(employee.getSalary()).isEqualTo(50000);
+    }
+
+
 
 }
