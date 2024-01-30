@@ -23,4 +23,15 @@ class EmployeesTest {
         assertEquals(2, payments);
     }
 
+    @Test
+    void givenNoEmployeesThenPayEmployeesShouldReturn0() {
+        employeeRepository = new EmployeeRepositoryTestDouble();
+        bankService = new BankServiceTestDouble();
+        employees = new Employees(employeeRepository, bankService);
+
+        int payments = employees.payEmployees();
+
+        assertEquals(0, payments);
+    }
+
 }
