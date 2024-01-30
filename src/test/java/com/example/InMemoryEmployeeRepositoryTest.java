@@ -32,6 +32,19 @@ class InMemoryEmployeeRepositoryTest {
         assertTrue(result.contains(e));
     }
 
+    @Test
+    void saveWithExistingIdShouldReplaceExistingEmployee() {
 
+        Employee e1 = new Employee("1", 45000.0);
+        Employee e2 = new Employee("1", 58000.0);
+        EmployeeRepository repository = new InMemoryEmployeeRepository(Arrays.asList(e1));
+
+        repository.save(e2);
+        List<Employee> result = repository.findAll();
+
+        assertEquals(1, result.size());
+        assertTrue(result.contains(e2));
+        assertFalse(result.contains(e1));
+    }
 
 }
