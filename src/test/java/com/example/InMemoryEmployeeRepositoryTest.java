@@ -20,6 +20,18 @@ class InMemoryEmployeeRepositoryTest {
         assertTrue(result.contains(e2));
     }
 
+    @Test
+    void saveShouldAddEmployeeToRepository() {
+
+        EmployeeRepository repository = new InMemoryEmployeeRepository();
+        Employee e = new Employee("1", 45000.0);
+
+        repository.save(e);
+        List<Employee> result = repository.findAll();
+
+        assertTrue(result.contains(e));
+    }
+
 
 
 }
