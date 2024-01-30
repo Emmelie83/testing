@@ -12,4 +12,10 @@ class GameTest {
         assertEquals(0, game.score());
     }
 
+    @Test
+    void givenOneRollTakingDownOnePinThenScoreShouldReturn1() {
+        game.roll(1);
+        assertEquals(1, game.score());
+    }
+
 }
