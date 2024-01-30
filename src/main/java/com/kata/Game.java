@@ -14,11 +14,11 @@ public class Game {
     public int score() {
         int i = 0;
         for (int frames = 0; frames < 10; frames++) {
-            if (rolls[i] == 10) {
-                score += 10 + rolls[i + 1] + rolls[i + 2];
+            if (isStrike(i)) {
+                score += 10 + addStrikeBonus(i);
                 i++;
-            } else if (rolls[i] + rolls[i + 1] == 10) {
-                score += 10 + rolls[i + 2];
+            } else if (isSpare(i)) {
+                score += 10 + addSpareBonus(i);
                 i += 2;
             } else {
                 score += rolls[i] + rolls[i + 1];
@@ -26,5 +26,23 @@ public class Game {
             }
         }
         return score;
+    }
+
+    boolean isStrike(int i) {
+        if (rolls[i] == 10) return true;
+        else return false;
+    }
+
+    int addStrikeBonus(int i) {
+        return rolls[i + 1] + rolls[i + 2];
+    }
+
+    boolean isSpare(int i) {
+        if (rolls[i] + rolls[i + 1] == 10) return true;
+        else return false;
+    }
+
+    int addSpareBonus(int i) {
+        return rolls[i + 2];
     }
 }
